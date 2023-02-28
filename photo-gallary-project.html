@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <style>
+    .photo{
+        height: 300px;
+        width: 300px;
+        background-repeat: no-repeat;
+        background-image: url("images/{{color}}.jpg");
+    }
+    body{
+        /* background-color: {{color}}; */
+    }
+  </style>
+  <body >
+    {{color}}
+  <div class="photo" ></div>
+
+  Choose Shirt: <form> <input type="radio" ng-model="color" value="orange">Orange | <input type="radio" ng-model="color" value="black">Black | <input type="radio" ng-model="color" value="red">Red </form>
+</body>
+</html>
+
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope){
+   
+  })
+</script>

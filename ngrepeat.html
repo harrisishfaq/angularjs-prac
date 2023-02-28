@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body >
+<!--with ng-repeat we can traverse arrays or any collection -->
+<ul>
+    <li ng-repeat="x in list">{{x}}</li>
+</ul>
+
+<!-- We can also make dropdown -->
+<select ng-model="selected">
+    <option ng-repeat="x in list">{{x}}</option>
+</select>
+<p>You Select: {{selected}}</p>
+  </body>
+
+</html>
+
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope){
+$scope.list = ["a" , "b" , "c" , "d"]
+  })
+</script>

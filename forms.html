@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body >
+ <form>
+    <input type="text" ng-model="value"><br>
+    <input type="checkbox" ng-model="boxvalue" ><br>
+    <input type="radio" ng-model="radio" value="Snooker">Snooker
+    <input type="radio" ng-model="radio" value="Cricket">Cricket
+    <input type="radio" ng-model="radio" value="Football">Football
+    <br>
+    Select a topic:
+    <select ng-model="myVar">
+      <option value="">
+      <option value="dogs">Dogs
+      <option value="tuts">Tutorials
+      <option value="cars">Cars
+    </select>
+ </form><br>
+ <strong> Value:</strong>  {{value}} <br>
+ <strong> Checkbox Value:</strong> <p ng-show="boxvalue">This is Box Value</p><br>
+ <strong> Radio Value:</strong>  {{radio}}<br>
+<strong>Selected Option</strong> {{myVar}}
+</body>
+</html>
+
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope){
+  
+   
+   
+  })
+</script>

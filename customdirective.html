@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body >
+    <please-select></please-select>
+    <drops></drops>
+<p drops></p>
+</body>
+
+</html>
+
+<script>
+    var app = angular.module("testapp" , []);
+    app.run(function($rootScope){
+        $rootScope.fruitnames = ["apple" , "mango" , "banana"]
+    })
+
+    app.directive("drops" , function(){
+var dropdown = "<select ng-model='selectedValue'>"
+    dropdown += "<option>Apple</option>"
+    dropdown += "<option>Mango</option>"
+    dropdown += "<option>Banana</option>"
+return {template: dropdown}
+    })
+    app.directive("pleaseSelect", function(){
+        return {template: "Please Select One:"}
+    })
+
+</script>

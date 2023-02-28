@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body >
+   <!-- with the help of filters you can perform many actions -->
+
+    <!-- Upper case -->
+    <div>
+        <input type="text" ng-model="name">
+    </div>
+    <br>
+        upper Write: {{name | uppercase}}
+    <!-- Lower case -->
+    <div>
+        <input type="text" ng-model="lname">
+    </div>
+    <br>
+        lower Write: {{lname | lowercase}}
+
+    <!-- currency filter -->
+    <div>
+        <input type="text" ng-model="currency">
+    </div>
+    <br>
+        currency in PKR: {{currency | currency: "Rs "}}<br>
+        currency in USD: {{currency | currency}} <br>
+        currency in INR: {{currency | currency: "Inr "}}
+
+
+        <!-- Only get those name which has I -->
+    <ul>
+        <li ng-repeat="x in names | filter: 'i' ">{{x}}</li>
+    </ul>
+    </body>
+</html>
+
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope){
+    $scope.names = ['Irene', 'John', 'Isabella', 'Ian', 'Sarah', 'Igor'];
+}
+  )
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body >
+  <!-- click -->
+  <button ng-click="click()">Click me</button><br>
+
+    <!-- Mouse hover -->
+    <button ng-mouseover="click()">mouse over</button><br>
+
+      <!-- Mouse hover -->
+      <button ng-mousedown="click()">mouse down</button><br>
+</body>
+</html>
+
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope){
+  $scope.click = function(){
+    alert("Hello World!")
+  }
+  })
+</script>

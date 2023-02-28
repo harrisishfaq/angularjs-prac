@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body >
+   
+    <p>The url of this page is:</p>
+    <h3>{{myUrl}}</h3>
+
+    <p>The Protocol of this page is:</p>
+    <h3>{{protocol}}</h3>
+
+    <p>The Port of your this is:</p>
+    <h3>{{port}}</h3>
+
+    <p>The Host of your this is:</p>
+    <h3>{{host}}</h3>
+</body>
+</html>
+
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope , $location){
+    $scope.myUrl = $location.absUrl();
+    $scope.protocol = $location.protocol();
+    $scope.host = $location.host();
+    $scope.port = $location.port();
+    
+  })
+</script>

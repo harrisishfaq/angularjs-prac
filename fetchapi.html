@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <style>
+
+  </style>
+  <body >
+<select ng-model="selectValue" ng-options="x for x in listcountries"> </select>
+<br>
+<p>{{selectValue}}</p>
+
+</body>
+
+</html>
+
+<script>
+
+var app = angular.module("testapp", []);
+    app.controller("myctrl", function($scope , $http ){
+
+    $http.get('https://restcountries.com/v2/all')
+        .then(function(response) {
+          $scope.countries = response.data; 
+          $scope.listcountries = []
+          for (let i = 0; i < $scope.countries.length; i++) {
+               $scope.listcountries.push($scope.countries[i].name)
+                }     
+        });
+  
+}
+)
+
+</script>

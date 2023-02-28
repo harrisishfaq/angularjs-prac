@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <body >
+ <!-- Wit the help of rootscope you can define variable outside controller -->
+    <input type="text" ng-model="name"><br>
+     You Typed: {{name}}
+</body>
+</html>
+
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function(){
+
+  })
+    app.run(function($rootScope){
+         $rootScope.name = "abcd"
+    })
+</script>
