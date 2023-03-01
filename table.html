@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+  <body >
+  <!-- decending order -->
+  <!-- <ul>
+    <li ng-repeat="x in names | orderBy : DESC  ">{{x.name}}</li>
+</ul> -->
+<!-- <table>
+    <tr>
+    <th>Name</th>
+    <th>City</th>
+    </tr>
+    <tr ng-repeat="x in names">
+<td>{{x.name}}</td>
+    <td>{{x.city}}</td>
+    </tr>
+</table> -->
+
+<table>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Show</th>
+    </tr>
+    <tr ng-repeat="x in names">
+      <td>{{x.name}}</td>
+      <td>{{x.city}}</td>
+      <td><button ng-click="show(x)">Show</button></td>
+    </tr>
+  </table>
+
+
+</body>
+</html>
+
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope){
+    $scope.names = [{id: 1 , name: 'haris', city:'lahore'},{id: 2 ,name: 'Isabella', city: 'Slough'},{id: 3 ,name: 'Sarah',city: 'abcd'} ,{id: 4 ,name: "ac" , city: "delhi"}];
+    $scope.show = function(x){
+        alert("Name is: "+x.name+" and City is: "+x.city);
+    }
+  })
+
+
+</script>

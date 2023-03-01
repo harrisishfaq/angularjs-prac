@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <!-- <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style> -->
+  <body >
+Search: <input type="text" ng-model="search" class="searchValue"> | <button ng-click="click()">Find Weather</button> <button class="reset">reset</button><br>
+
+  Name: {{data.name}} <br>
+  Condition: {{data.weather}}<br>
+  Temperature: {{data.main}}
+</body>
+</html>
+
+<!-- Angular Controller Code -->
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope , $http){
+    $scope.apikey = "f33677d5ece2ce4a0f2b0f8d0503e844";
+    // $scope.search = "London"
+    $scope.click = function(){
+    $http.get("https://api.openweathermap.org/data/2.5/weather?q="+$scope.search+"&appid="+$scope.apikey)
+  .then(function(response) {
+    $scope.data = response.data;
+  });
+}
+ 
+  })
+</script>
+
+<!-- Jquery Code -->
+<script>
+  $(document).ready(function(){
+    $(".reset").hide();
+    $(".searchValue").click(function(){
+       $(".reset").show();
+    })
+    $(".reset").click(function(){
+        location.reload();
+        $(".searchValue").val('');
+    })
+  })
+</script>

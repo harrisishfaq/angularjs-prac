@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+<body >
+    {{myForm.email}}
+    <br>
+    <br>
+    <form name="myForm">
+        <div>
+        Email: <input type="email" name="email" ng-model="user_email">
+        <strong ng-show="myForm.email.$invalid">Email Invalid</strong>
+       </div>
+        <br>
+
+        <div>
+            Touched: <input type="text" name="touched" ng-model="user_touched">
+          <strong ng-show="myForm.touched.$touched">field touched</strong>
+        </div>
+
+<br>        <div>
+            unTouched: <input type="text" name="untouched" ng-model="user_untouched">
+          <strong ng-show="myForm.untouched.$untouched">field untouched</strong>
+        </div>
+    </form>
+    
+
+</body>
+</html>
+
+<!-- Angular Controller Code -->
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope , $http){
+
+    
+  })
+</script>

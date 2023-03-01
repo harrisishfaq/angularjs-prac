@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+  <body >
+Search: <input type="text" ng-model="search" class="searchValue"> <button class="reset">reset</button><br>
+<table>
+    <tr>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Created At</th>
+      <th>Updated At</th>
+      <th>Show</th>
+    </tr>
+    <tr ng-repeat="x in users | filter: search">
+      <td>{{x.email}}</td> 
+      <td>{{x.password}}</td> 
+      <td>{{x.created_at}}</td>
+       <td>{{x.updated_at}}</td>
+     <td><button ng-click="show(x)">Show</button></td>
+    </tr>
+  </table>
+<!-- {{users[0].email}} -->
+</body>
+</html>
+
+<!-- Angular Controller Code -->
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope , $http){
+   $http({
+    method: 'GET',
+    url: 'http://localhost:3005/users'
+   }).then(function(response){
+      $scope.users = response.data.users
+   } , function(){
+    alert("error")
+   })
+$scope.show = function(record){
+    // window.location.href = "file:///home/haris/Desktop/angular/http-put-rails.html?id="+record.id;
+    alert(record.id);
+}
+}
+  )
+</script>
+
+<!-- Jquery Code -->
+<script>
+  $(document).ready(function(){
+    $(".reset").hide();
+    $(".searchValue").click(function(){
+       $(".reset").show();
+    })
+    $(".reset").click(function(){
+        location.reload();
+        $(".searchValue").val('');
+    })
+  })
+</script>

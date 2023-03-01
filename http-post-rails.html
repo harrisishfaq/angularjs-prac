@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <body >
+    <h1>Angular Post Request</h1>
+    {{response.message}}
+    <form name="userForm">
+        Email: <input type="email" ng-model="user_email" class="email" name="email"><br>
+        Password: <input type="password" ng-model="user_password" class="password"><br>
+        <button ng-click="send()">Create</button>
+
+
+      </form>
+<br><br>
+      <a href = "file:///home/haris/Desktop/angular/http-get-rails.html">View All Users</a>
+</body>
+</html>
+
+<!-- Angular Controller Code -->
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope , $http){
+$scope.send = function(){
+  if($scope.userForm.email.$valid == true && $scope.userForm.email.$viewValue != null){
+    $http({
+    method: 'POST',
+    url: 'http://localhost:3005/users',
+    data: {
+        email: $scope.user_email,
+        password: $scope.user_password
+    }
+}).then(function successCallback(response) {
+  
+    $(".email").val('');
+    $(".password").val('');
+    $scope.response = response.data
+}, function errorCallback(response) {
+    // Handle error response here
+    console.log(response);
+}); }
+
+    }
+  })
+</script>
