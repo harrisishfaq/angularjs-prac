@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  </head>
+  <style>
+
+  </style>
+  <body >
+<button ng-click="click()">Click me</button>
+</body>
+
+</html>
+
+<script>
+
+var app = angular.module("testapp", []);
+app.controller(function($scope){
+    $scope.click = function(){
+        alert("oky");
+    }
+})
+
+// app.controller("myctrl", function($scope , $http ){
+// $scope.arr = ["a" , "b" , "c"]
+
+//     $http.get('https://restcountries.com/v2/all')
+//         .then(function(response) {
+//             // alert("Success");
+//           $scope.countries = response.data; 
+//           $scope.listcountries = []
+//           for (let i = 0; i < $scope.countries.length; i++) {
+//                $scope.listcountries.push($scope.countries[i].name)
+//                 }     
+//         });
+//   $scope.fetchCities = function(){
+
+//     // $http.get('https://restcountries.com/v2/all')
+//     //     .then(function(response) {
+//     //         alert("Success");
+//     //       $scope.countries = response.data; 
+//     //       $scope.listcountries = []
+//     //       for (let i = 0; i < $scope.countries.length; i++) {
+//     //            $scope.listcountries.push($scope.countries[i].name)
+//     //             }     
+//     //     });
+//   }
+  
+// }
+// )
+// app.directive("harisIshfaq" , function(value){
+//     var word = "Welcome {{value}}"
+//     // return word
+//     return {template: word}
+// })
+// // app.run(function($rootScope){
+// //     // $rootScope.name = "hello world"
+// //     $scope.name = "hellowWorld"
+// // })
+
+</script>

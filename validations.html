@@ -12,7 +12,7 @@
     {{myForm.email}}
     <br>
     <br>
-    <form name="myForm">
+    <form name="myForm" ng-submit="submi()">
         <div>
         Email: <input type="email" name="email" ng-model="user_email">
         <strong ng-show="myForm.email.$invalid">Email Invalid</strong>
@@ -28,6 +28,13 @@
             unTouched: <input type="text" name="untouched" ng-model="user_untouched">
           <strong ng-show="myForm.untouched.$untouched">field untouched</strong>
         </div>
+
+        <br>
+        <div>
+            Max-length: <input type="text" ng-model="val" ng-maxlength = "5" name="max">
+            <strong ng-show="!myForm.max.$valid">Error: Only 5 elment allowed!</strong>
+        </div>
+        <input type="submit" value="Submit krdo">
     </form>
     
 
@@ -39,6 +46,8 @@
   var app = angular.module("testapp" , []);
   app.controller("myctrl" , function($scope , $http){
 
-    
+    $scope.submi = function(){
+        alert("Submitted");
+    }
   })
 </script>

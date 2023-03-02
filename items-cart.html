@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="testapp" ng-controller="myctrl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angularjs practice</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+<body >
+  {{}}
+<input type="text" ng-model="additem" > <button ng-click="add()">Add item</button>
+  <div>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Delete</th>
+        </tr>
+        <tr ng-repeat="x in food">
+            <td>{{x}}</td>
+            <td><button ng-click="delete(x)">Delete</button></td>
+        </tr>
+    </table>
+  </div>
+</body>
+</html>
+
+<!-- Angular Controller Code -->
+<script>
+  var app = angular.module("testapp" , []);
+  app.controller("myctrl" , function($scope , $http){
+
+    $scope.food = ["apple" , "bread"]
+$scope.delete = function(x){
+    $scope.food.splice(x,1);
+        //  var index = $scope.food.indexOf(x);
+    // delete $scope.food[index];
+}
+
+$scope.add = function(){
+    $scope.food.push($scope.additem)
+}
+  })
+</script>
